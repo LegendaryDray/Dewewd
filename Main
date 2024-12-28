@@ -1,451 +1,217 @@
--- credits due: bracket lib - keybind & tooltip function, cripware - slider math, xaxaxaxaxaxaxaxaxa making the ui
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/joeengo/exploiting/main/EngoUILIB_V2.lua", true))()
 
-local library, patches = {
-    version = "1.0",
-    configuration = {
-        frames = {
-            MainBackFrameColor = Color3.fromRGB(138, 138, 138), -- the very back border's color
-            BorderColor = Color3.fromRGB(50, 50, 50), -- the outline border color of every element (element = toggle, textbox, etc)
-            InlineBorderColor = Color3.fromRGB(10, 10, 10), -- the inline border color of every frame in the ui
-        },
-        
-        elements = {
-            BorderColor = Color3.fromRGB(50, 50, 50), -- the outline border color of every element (element = toggle, textbox, etc)
-            InlineBorderColor = Color3.fromRGB(10, 10, 10), -- the inline border color of every element (element = toggle, textbox, etc)
-        },
-    
-        text = {
-            Color = Color3.fromRGB(255, 255, 255), -- the color of the everything in the ui that has the TextColor3 property
-            Font = "Code", -- the font of everything in the ui that has the Font property
-        },
-    
-        miscellaneous = {
-            BackgroundGlowColor = Color3.fromRGB(255, 255, 255), -- the color of the back ground glow of the ui 
-            TabHighlightColor = Color3.fromRGB(30, 30, 30), -- The BackGroundColor3 of tab and sub-tabs/sections when you click them
-            
-            DisplayFpsAndPing = true, -- displays your fps and ping in the top right corner of the ui 
-            UIToggleKey = Enum.KeyCode.RightAlt, -- the key to toggle the ui's Visible property on/true and off/false
-        },
-    },
-}, {};
+local main = library:CreateMain("Credits", "Main","Universal","Troll" Enum.KeyCode.LeftAlt)
 
-if library.version ~= "1.0" then 
-    setclipboard("https://pastebin.com/raw/yWynU0Wq")
-    return messagebox("You are using an outdated version of the ciazware ui library, the github repository for the ui library has been copied to your clipboard", "ciazware ui library", 0)
-end
+local tab = main:CreateTab("Credits")
 
-local configuration = library.configuration;
+creditsTab.newLabel("🌟 Hub Creator: uniqve")
+creditsTab.newLabel("🧪 Script Tester: qweiringss")
+creditsTab.newLabel("🎨 UI Design: DrRay Library")
+creditsTab.newLabel("🙏 Special Thanks: AZYsGithub")
+creditsTab.newLabel("🔄 Version: 5.0 Updated")
+creditsTab.newLabel("🌐 Additional Credits: External Z Hub Community")
 
-local frames = configuration.frames;
-local FrameBorderColor, FrameInlineBorderColor, MainBackFrameColor = frames.BorderColor, frames.InlineBorderColor, frames.MainBackFrameColor;
+local tab = main:CreateTab("Main")
 
-local elements = configuration.elements;
-local ElementBorderColor, ElementsInlineBorderColor = elements.BorderColor, elements.InlineBorderColor;
+mainTab.newLabel("📝 Credits: External Team")
+mainTab.newLabel("🔄 Updated")
+mainTab.newLabel("🔍 Find more stuff in the last tab")
+mainTab.newLabel("🔧 Useful stuff")
 
-local text = configuration.text;
-local TextColor, TextFont = text.Color, text.Font;
+-- Tools in Main Tab
+mainTab.newButton("🔄 Rejoin", "Yes sir, it's self-explanatory", function()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
 
-local miscellaneous = configuration.miscellaneous;
-local BackgroundGlowColor, TabHighlightColor, DisplayFpsAndPing, UIToggleKey = miscellaneous.BackgroundGlowColor, miscellaneous.TabHighlightColor, miscellaneous.DisplayFpsAndPing, miscellaneous.UIToggleKey;
+mainTab.newButton("🔄 Serverhop", "Joins you in a different server", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/VduBT2nt"))()
+end)
 
--- init 
-local IsLoaded, Loaded, GetService = game.IsLoaded, game.Loaded, game.GetService;
-if not IsLoaded(game) then 
-    Loaded.Wait(Loaded)
-end
+mainTab.newButton("🔍 Script searcher", "Useful if you don't have an executor with global scripts", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
+end)
 
-local assert = function(case)
-    if not case then 
-        return error(debug.traceback());
-    end
-end
+mainTab.newButton("⌨️ Keyboard", "Keyboard for mobile", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
 
-local Service = setmetatable({}, {
-    __index = function(self, Index)
-        assert((Index or GetService(game, Index)));
-        
-        return GetService(game, Index)
-    end
-}); local workspace, TweenService, TextService, UserInputService, RunService = Service.Workspace, Service.TweenService, Service.TextService, Service.UserInputService, Service.RunService;
+mainTab.newButton("🛠️ Dex explorer", "Dex for mobile to steal game scripts and delete stuff", function()
+    getgenv().Key = "Bash"
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex", true))()
+end)
 
-local lower, upper = string.lower, string.upper;
-local find, len, format, split = string.find, string.len, string.format, string.split;
-local resume, create = coroutine.resume, coroutine.create;
+tab:CreateLabel("Universal")
 
-local Vector3, Vector2, Rect = Vector3.new, Vector2.new, Rect.new;
-local NewInstance, Color3FromRGB, UDim2, UDim = Instance.new, Color3.fromRGB, UDim2.new, UDim.new;
-
-local Connect, Camera, Mouse = Loaded.Connect, workspace.CurrentCamera, Service.Players.LocalPlayer.GetMouse(Service.Players.LocalPlayer);
-local GetDescendants, GetChildren, IsA = game.GetDescendants, game.GetChildren, game.IsA;
-
-local PropertiesTable = {["TextButton"] = "BackgroundColor3", ["Frame"] = "BackgroundTransparency", ["UIStroke"] = "Transparency"}; --{["Frame"] = "BackgroundTransparency", ["TextLabel"] = "TextTransparency", ["UIStroke"] = "Transparency"};
-local BlacklistedKeyNames = {"W", "A", "S", "D", "Slash", "Tab", "Backspace", "Escape", "Space", "Delete", "Unknown", "Backquote"};
-
-local protect_gui = function(Gui, Parent)
-    if syn then
-        syn.protect_gui(Gui)
-        Gui.Parent = Parent
-    elseif gethui then
-        Gui.Parent = gethui()
-    else
-        Gui.Parent = Parent
-    end
-end -- thanks regularid
-
--- script functions
-function patches.FixTextSize(Object, FixSize)
-    assert((Object or typeof(Object) == "Instance"));
-    assert((FixSize or type(FixSize) == "number"));
-    
-    local TextSize = TextService.GetTextSize(TextService, 
-        Object.Text, Object.TextSize, Object.Font, Vector2(Camera.ViewportSize.X, Object.AbsoluteSize.Y)
-    ).X
-
-    Object.Size = UDim2(0, TextSize + FixSize, 0, Object.Size.Y.Offset)
-end
-
-function patches.FadeObject(Object, Speed, Value, Custom)
-    assert((Object or typeof(Object) == "Instance"));
-    assert((Speed or type(Speed) == "number"));
-    assert((Value));
-    
-    local Property = ((Custom == false and PropertiesTable[Object.ClassName]) or (Custom == true and "BackgroundColor3"))
-    
-    local TweenServiceInfo = TweenService.Create(TweenService, Object, TweenInfo.new(Speed, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-        [Property] = Value,
-    }); TweenServiceInfo.Play(TweenServiceInfo);
-end
-
-
-function library.new(Name)
-    assert((Name or type(Name) == "string"));
-    
-    local IsToolTipActive = false 
-    local ActiveToolTip, ActiveTab, MenuOpen = nil, nil, true
-    
-    local function UpdateToolTipPosition() 
-        if IsToolTipActive == true and ActiveToolTip ~= nil then 
-            ActiveToolTip.Position = UDim2(0, UserInputService.GetMouseLocation(UserInputService).X - ActiveToolTip.AbsoluteSize.Y - ActiveToolTip.AbsoluteSize.X, 0, UserInputService.GetMouseLocation(UserInputService).Y - 10)
-        end
-    end
-    
-    local ScreenGui = NewInstance("ScreenGui")    
-    ScreenGui.ZIndexBehavior = "Global"
-    protect_gui(ScreenGui, game.GetService(game, "CoreGui"))
-
-    local BackFrame = NewInstance("Frame")
-    BackFrame.Name = "BackFrame"
-    BackFrame.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-    BackFrame.BorderColor3 = Color3FromRGB(20, 20, 20)
-    BackFrame.BorderSizePixel = 2
-    BackFrame.Position = UDim2(0.0981308445, 0, 0.0834355801, 0)
-    BackFrame.Size = UDim2(0, 550, 0, 600)
-    BackFrame.Draggable = true 
-    BackFrame.Selectable = true 
-    BackFrame.Active = true
-    BackFrame.Parent = ScreenGui
-    
-    local BackFrame_UIStroke = NewInstance("UIStroke")
-    BackFrame_UIStroke.Name = "BackFrame_UIStroke"
-    BackFrame_UIStroke.ApplyStrokeMode = "Border"
-    BackFrame_UIStroke.Color = MainBackFrameColor
-    BackFrame_UIStroke.LineJoinMode = "Miter"
-    BackFrame_UIStroke.Thickness = 1 
-    BackFrame_UIStroke.Transparency = 0 
-    BackFrame_UIStroke.Enabled = true 
-    BackFrame_UIStroke.Parent = BackFrame
-    
-    local MainFrame = NewInstance("Frame")
-    MainFrame.Name = "MainFrame"
-    MainFrame.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-    MainFrame.BorderColor3 = FrameBorderColor
-    MainFrame.BorderSizePixel = 2
-    MainFrame.Position = UDim2(0.0199490078, 0, 0.0434355661, 0)
-    MainFrame.Size = UDim2(0, 528, 0, 564)
-    MainFrame.Parent = BackFrame
-    
-    local MainFrame_UIStroke = NewInstance("UIStroke")
-    MainFrame_UIStroke.Name = "MainFrame_UIStroke"
-    MainFrame_UIStroke.ApplyStrokeMode = "Border"
-    MainFrame_UIStroke.Color = FrameInlineBorderColor
-    MainFrame_UIStroke.LineJoinMode = "Miter"
-    MainFrame_UIStroke.Thickness = 1 
-    MainFrame_UIStroke.Transparency = 0 
-    MainFrame_UIStroke.Enabled = true 
-    MainFrame_UIStroke.Parent = MainFrame
-    
-    local SectionsFrame = NewInstance("Frame")
-    SectionsFrame.Name = "SectionsFrame"
-    SectionsFrame.BackgroundColor3 = Color3FromRGB(255, 255, 255)
-    SectionsFrame.BackgroundTransparency = 1.000
-    SectionsFrame.Position = UDim2(0.024999965, 0, 0.0514184386, 35)
-    SectionsFrame.Size = UDim2(0, 504, 0, 488)
-    SectionsFrame.Parent = MainFrame
-    
-    local TabsHolderFrame = NewInstance("Frame")
-    TabsHolderFrame.Name = "TabsHolderFrame"
-    TabsHolderFrame.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-    TabsHolderFrame.BorderColor3 = FrameBorderColor
-    TabsHolderFrame.BorderSizePixel = 2
-    TabsHolderFrame.Position = UDim2(0.0250000004, 0, 0.0209999997, 0)
-    TabsHolderFrame.Size = UDim2(0, 503, 0, 42)
-    TabsHolderFrame.Parent = MainFrame
-    
-    local TabsHolderFrame_UIStroke = NewInstance("UIStroke")
-    TabsHolderFrame_UIStroke.Name = "TabsHolderFrame_UIStroke"
-    TabsHolderFrame_UIStroke.ApplyStrokeMode = "Border"
-    TabsHolderFrame_UIStroke.Color = FrameInlineBorderColor
-    TabsHolderFrame_UIStroke.LineJoinMode = "Miter"
-    TabsHolderFrame_UIStroke.Thickness = 1 
-    TabsHolderFrame_UIStroke.Transparency = 0 
-    TabsHolderFrame_UIStroke.Enabled = true 
-    TabsHolderFrame_UIStroke.Parent = TabsHolderFrame
-    
-    local TabsFrame = NewInstance("Frame") 
-    TabsFrame.Name = "TabsFrame"
-    TabsFrame.BackgroundColor3 = Color3FromRGB(255, 255, 255)
-    TabsFrame.BackgroundTransparency = 1.000
-    TabsFrame.Position = UDim2(0.0177865606, 0, 0.261904955, 0)
-    TabsFrame.Size = UDim2(0, 488, 0, 25)
-    TabsFrame.Parent = TabsHolderFrame
-    
-    local TabsFrame_UIListLayout = NewInstance("UIListLayout")
-    TabsFrame_UIListLayout.Name = "TabsFrame_UIListLayout"
-    TabsFrame_UIListLayout.FillDirection = Enum.FillDirection.Horizontal
-    TabsFrame_UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    TabsFrame_UIListLayout.Padding = UDim(0, 10)
-    TabsFrame_UIListLayout.Parent = TabsFrame
-    
-    local Shadow = NewInstance("ImageLabel")
-    Shadow.Name = "Shadow"
-    Shadow.AnchorPoint = Vector2(0.5, 0.5)
-    Shadow.BackgroundColor3 = Color3FromRGB(255, 255, 255)
-    Shadow.BackgroundTransparency = 1.000
-    Shadow.Position = UDim2(0.5, 0, 0.5, 0)
-    Shadow.Size = UDim2(1, 45, 1, 45)
-    Shadow.ZIndex = 0
-    Shadow.Image = "rbxassetid://2654849154"
-    Shadow.ImageRectOffset = Vector2(2, 2)
-    Shadow.ImageRectSize = Vector2(252, 252)
-    Shadow.ImageTransparency = 0.400
-    Shadow.ScaleType = Enum.ScaleType.Slice
-    Shadow.SliceCenter = Rect(64, 64, 192, 192)
-    Shadow.SliceScale = 0.310
-    Shadow.ImageColor3 = BackgroundGlowColor
-    Shadow.Parent = BackFrame
-    
-    local NameLabel = NewInstance("TextLabel")
-    NameLabel.Name = "NameLabel"
-    NameLabel.BackgroundColor3 = Color3FromRGB(255, 255, 255)
-    NameLabel.BackgroundTransparency = 1.000
-    NameLabel.Position = UDim2(0.0181818176, 0, 0, 0)
-    NameLabel.Size = UDim2(0, 188, 0, 26)
-    NameLabel.Font = TextFont
-    NameLabel.LineHeight = 0.740
-    NameLabel.Text = Name
-    NameLabel.TextColor3 = TextColor
-    NameLabel.TextSize = 14.000
-    NameLabel.TextStrokeColor3 = Color3FromRGB(255, 255, 255)
-    NameLabel.Parent = BackFrame
-    
-    patches.FixTextSize(NameLabel, -2)
-    
-    local FpsAndPingLabel = NewInstance("TextLabel")
-    FpsAndPingLabel.Name = "FpsAndPingLabel"
-    FpsAndPingLabel.BackgroundColor3 = Color3FromRGB(255, 255, 255)
-    FpsAndPingLabel.BackgroundTransparency = 1.000
-    FpsAndPingLabel.Position = UDim2(0.73636359, 0, 0, 0)
-    FpsAndPingLabel.Size = UDim2(0, 133, 0, 26)
-    FpsAndPingLabel.Font = Enum.Font.Code
-    FpsAndPingLabel.LineHeight = 0.740
-    FpsAndPingLabel.Text = ""
-    FpsAndPingLabel.TextColor3 = Color3FromRGB(255, 255, 255)
-    FpsAndPingLabel.TextSize = 14.000
-    FpsAndPingLabel.TextStrokeColor3 = Color3FromRGB(255, 255, 255)
-    FpsAndPingLabel.Visible = DisplayFpsAndPing
-    FpsAndPingLabel.Parent = BackFrame
-    
-    local FpsAndPingLoop, FpsAmount, PingAmount = nil, 0, 0
-    FpsAndPingLoop = Connect(RunService.Heartbeat, function(Step)
-        FpsAmount = (1 / Step);
-    end)
-    
-    resume(create(function() -- put it on a new thread
-        while task.wait(1) do 
-            FpsAndPingLabel.Text = format("fps - %d, ping - %d", FpsAmount, tonumber(string.split(Service.Stats.Network.ServerStatsItem["Data Ping"].GetValueString(Service.Stats.Network.ServerStatsItem["Data Ping"]), ".")[1]));
-            patches.FixTextSize(FpsAndPingLabel, -4)
-        end
-    end))
-    
-    Connect(UserInputService.InputBegan, function(Key)
-        if UserInputService.GetFocusedTextBox(UserInputService) then return end 
-        
-        if Key and Key.KeyCode == UIToggleKey then 
-            MenuOpen = not MenuOpen
-            
-            BackFrame.Visible = MenuOpen 
-            MainFrame.Visible = MenuOpen
+mainTab.newButton("🦘 Inf Jump", "Gives you infinite jump so you can jump forever", function()
+    local InfiniteJumpEnabled = true
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        if InfiniteJumpEnabled then
+            game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
         end
     end)
-    
-    local internalfunctions = {}
-    
-    function internalfunctions.HandleToolTip(Object, Text)    
-        assert((Object or typeof(Object) == "Instance"));
-        assert((Text or type(Text) == "string"));
-        
-        local ToolTip = NewInstance("TextLabel")
-        ToolTip.Name = "ToolTip"
-        ToolTip.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-        ToolTip.BorderColor3 = ElementBorderColor
-        ToolTip.BorderSizePixel = 2
-        ToolTip.Position = UDim2(0.490150571, 0, 0.63190186, 0)
-        ToolTip.Size = UDim2(0, 123, 0, 17)
-        ToolTip.Font = TextFont
-        ToolTip.Text = Text
-        ToolTip.TextColor3 = TextColor
-        ToolTip.TextSize = 14.000
-        ToolTip.TextStrokeColor3 = Color3FromRGB(255, 255, 255)
-        ToolTip.Visible = false 
-        ToolTip.Parent = ScreenGui
-        
-        local ToolTip_UIStroke = NewInstance("UIStroke")
-        ToolTip_UIStroke.Name = "ToolTip_UIStroke"
-        ToolTip_UIStroke.ApplyStrokeMode = "Border"
-        ToolTip_UIStroke.Color = ElementsInlineBorderColor
-        ToolTip_UIStroke.LineJoinMode = "Miter"
-        ToolTip_UIStroke.Thickness = 1 
-        ToolTip_UIStroke.Transparency = 0 
-        ToolTip_UIStroke.Enabled = true 
-        ToolTip_UIStroke.Parent = ToolTip
-        
-        patches.FixTextSize(ToolTip, 5)
-        
-        local function OnToolTipMouseEnter()
-            ToolTip.Visible = true 
-            
-            IsToolTipActive = true 
-            ActiveToolTip = ToolTip
-            
-            RunService.BindToRenderStep(RunService, "ciazware_tooltip_loop", 1, UpdateToolTipPosition)
-        end; Connect(Object.MouseEnter, OnToolTipMouseEnter);
-        
-        local function OnToolTipMouseLeave()
-            ToolTip.Visible = false
-            
-            IsToolTipActive = false
-            ActiveToolTip = nil 
-            
-            RunService.UnbindFromRenderStep(RunService, "ciazware_tooltip_loop")
-        end; Connect(Object.MouseLeave, OnToolTipMouseLeave);
-    end
+end)
 
-    local tabs = {}
-    
-    function tabs.AddTab(Name)
-        assert((Name or type(Name) == "string"));
-        
-        local TabButton = NewInstance("TextButton")
-        TabButton.Name = Name
-        TabButton.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-        TabButton.BorderColor3 = ElementBorderColor
-        TabButton.BorderSizePixel = 2
-        TabButton.Position = UDim2(0.830841064, 0, 1.10017526, 0)
-        TabButton.Size = UDim2(0, 53, 0, 23)
-        TabButton.Font = TextFont
-        TabButton.Text = Name
-        TabButton.TextColor3 = TextColor
-        TabButton.TextSize = 14.000
-        TabButton.TextStrokeColor3 = Color3FromRGB(255, 255, 255)
-        TabButton.Parent = TabsFrame
-        
-        local TabButton_UIStroke = NewInstance("UIStroke")
-        TabButton_UIStroke.Name = "TabButton_UIStroke"
-        TabButton_UIStroke.ApplyStrokeMode = "Border"
-        TabButton_UIStroke.Color = ElementsInlineBorderColor
-        TabButton_UIStroke.LineJoinMode = "Miter"
-        TabButton_UIStroke.Thickness = 1 
-        TabButton_UIStroke.Transparency = 0 
-        TabButton_UIStroke.Enabled = true 
-        TabButton_UIStroke.Parent = TabButton
-        
-        patches.FixTextSize(TabButton, 5)
-        
-        local function OnTabButtonClick()
-            for Index, Object in next, GetChildren(TabsFrame) do 
-                if Object and IsA(Object, "TextButton") then 
-                    Object.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-                end
-            end
-            
-            task.wait()
-            
-            TabButton.BackgroundColor3 = TabHighlightColor
-            
-            for Index, Object in next, GetChildren(SectionsFrame) do 
-                Object.Visible = (find(split(Object.Name, "_")[2], Name) and true or false)
-            end
-        end; Connect(TabButton.MouseButton1Click, OnTabButtonClick);
-        
-        local sections = {}
-        
-        function sections.AddSection()
-            local SectionFrame = NewInstance("Frame")
-            SectionFrame.Name = format("SectionFrame_%s", TabButton.Name)
-            SectionFrame.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-            SectionFrame.BorderColor3 = FrameBorderColor
-            SectionFrame.BorderSizePixel = 2
-            SectionFrame.Position = UDim2(-0.00169626868, 0, -0.0684931427, 35)
-            SectionFrame.Size = UDim2(0, 503, 0, 486)
-            SectionFrame.Visible = false 
-            SectionFrame.Parent = SectionsFrame
-            
-            local SectionFrame_UIStroke = NewInstance("UIStroke")
-            SectionFrame_UIStroke.Name = "SectionFrame_UIStroke"
-            SectionFrame_UIStroke.ApplyStrokeMode = "Border"
-            SectionFrame_UIStroke.Color = FrameInlineBorderColor
-            SectionFrame_UIStroke.LineJoinMode = "Miter"
-            SectionFrame_UIStroke.Thickness = 1 
-            SectionFrame_UIStroke.Transparency = 0 
-            SectionFrame_UIStroke.Enabled = true 
-            SectionFrame_UIStroke.Parent = SectionFrame
-            
-            local SectionTabsHolderFrame = NewInstance("Frame")
-            SectionTabsHolderFrame.Name = "SectionTabsHolderFrame"
-            SectionTabsHolderFrame.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-            SectionTabsHolderFrame.BorderColor3 = FrameBorderColor
-            SectionTabsHolderFrame.BorderSizePixel = 2
-            SectionTabsHolderFrame.Position = UDim2(0.0357852876, 0, 0.0308641978, 0)
-            SectionTabsHolderFrame.Size = UDim2(0, 466, 0, 42)
-            SectionTabsHolderFrame.Parent = SectionFrame
-            
-            local SectionTabsFrame_UIStroke = NewInstance("UIStroke")
-            SectionTabsFrame_UIStroke.Name = "SectionTabsFrame_UIStroke"
-            SectionTabsFrame_UIStroke.ApplyStrokeMode = "Border"
-            SectionTabsFrame_UIStroke.Color = FrameInlineBorderColor
-            SectionTabsFrame_UIStroke.LineJoinMode = "Miter"
-            SectionTabsFrame_UIStroke.Thickness = 1 
-            SectionTabsFrame_UIStroke.Transparency = 0 
-            SectionTabsFrame_UIStroke.Enabled = true 
-            SectionTabsFrame_UIStroke.Parent = SectionTabsHolderFrame
-            
-            local SectionTabsFrame = NewInstance("Frame")
-            SectionTabsFrame.Name = "SectionTabsFrame"
-            SectionTabsFrame.BackgroundColor3 = Color3FromRGB(255, 255, 255)
-            SectionTabsFrame.BackgroundTransparency = 1.000
-            SectionTabsFrame.Position = UDim2(0.0201459229, 0, 0.261523664, -1)
-            SectionTabsFrame.Size = UDim2(0, 448, 0, 25)
-            SectionTabsFrame.Parent = SectionTabsHolderFrame
-            
-            local SectionTabsFrame_UIListLayout = NewInstance("UIListLayout")
-            SectionTabsFrame_UIListLayout.Name = "SectionTabsFrame_UIListLayout"
-            SectionTabsFrame_UIListLayout.FillDirection = Enum.FillDirection.Horizontal
-            SectionTabsFrame_UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-            SectionTabsFrame_UIListLayout.Padding = UDim(0, 10)
-            SectionTabsFrame_UIListLayout.Parent = SectionTabsFrame
-            
-            local SubSectionsFrame = NewInstance("Frame")
-            SubSectionsFrame.Name = "SubSectionsFrame"
-            SubSectionsFrame.BackgroundColor3 = Color3FromRGB(20, 20, 20)
-            SubSectionsFrame.BackgroundTransparency = 1.000
-    
+mainTab.newButton("👀 Chat spy [FE]", "Spy on private chat", function()
+    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Chat-Spy-Script-2104"))()
+end)
+
+mainTab.newButton("🚪 Noclip", "Walk through walls; press 'E' to toggle", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/yxvrgmMH"))()
+end)
+
+mainTab.newButton("✈️ Fly GUI", "A fly GUI to make you fly", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/zXUSuxbs"))()
+end)
+
+local tab = main:CreateTab("Troll")
+
+trollTab.newButton("⚡ FPS Booster", "Improves game performance", function()
+    setfpscap(1000)
+end)
+
+trollTab.newButton("⏲️ Anti-AFK", "Prevents being kicked", function()
+    local vu = game:GetService("VirtualUser")
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        wait(1)
+        vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    end)
+end)
+
+local tab = main:CreateTab("Games")
+
+GamesTab.newButton("🔫 Arsenal", "Shooter Game Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/StupidProAArsenal/UniqueHub/main/arsenal"))()
+end)
+
+GamesTab.newButton("🏡 Bloxburg", "House Building Game", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SurgeDid/Blockburg/main/loader.lua"))()
+end)
+
+GamesTab.newButton("🏃 Tower of Hell", "Parkour Challenge", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Tower-of-Hell-STARRY-OP-25216"))()
+end)
+
+GamesTab.newButton("🚔 Jailbreak", "Heist Adventure", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Jailbreak-BEST-OP-SCRIPT-18726"))()
+end)
+
+GamesTab.newButton("👥 Shindo Life", "Anime RPG Script", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/UPDATE-Shindo-Life-Premier-X-Free-Version-3237"))()
+end)
+
+GamesTab.newButton("🎶 Funky Friday", "Rhythm Game Script", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Autoplayer_278"))()
+end)
+
+GamesTab.newButton("⚔️ Combat Warriors", "Combat Battle", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/EVENT-UPDCombat-Warriors-25240"))()
+end)
+
+GamesTab.newButton("⚾ Blade Ball", "PVP Battle Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/No6No6No7yt/Lumin-Hub/main/BladeV4.lua"))()
+end)
+
+GamesTab.newButton("⚔️ Anime Fighting Simulator", "Anime Battle Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Anime-Fighting-Simulator-Script-23562"))()
+end)
+
+GamesTab.newButton("🔪 Murder Mystery 2", "Murder Mystery Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Murder-Mystery-2-Script-22143"))()
+end)
+
+GamesTab.newButton("🐝 Bee Swarm Simulator", "Bee Farming Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Bee-Swarm-Simulator-Script-22651"))()
+end)
+
+GamesTab.newButton("☠️ Blox Fruits", "Pirate Adventure Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Blox-Fruits-Script-20664"))()
+end)
+
+GamesTab.newButton("🐾 Pet Simulator X", "Pet Collecting Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Pet-Simulator-X-Script-22843"))()
+end)
+
+GamesTab.newButton("🚢 Build a Boat for Treasure", "Boat Building Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Build-a-Boat-for-Treasure-Script-19183"))()
+end)
+
+GamesTab.newButton("🌲 Lumber Tycoon 2", "Woodcutting Simulator", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Lumber-Tycoon-2-Script-21943"))()
+end)
+
+GamesTab.newButton("🏙️ Brookhaven", "Life Simulation Game", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/4w3s0me/0/"))()
+end)
+
+local tab = main:CreateTab("Others")
+
+othersTab.newButton("🐶 Adopt Me!", "Pet Simulation Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Adopt-Me-Script-30159"))()
+end)
+
+othersTab.newButton("🧩 Escape Room", "Escape Room Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Escape-Room-Script-25517"))()
+end)
+
+othersTab.newButton("💣 Super Bomb Survival", "Explosive Survival Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Super-Bomb-Survival-Script-30242"))()
+end)
+
+othersTab.newButton("🌪️ Natural Disaster Survival", "Survival Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Natural-Disaster-Survival-Script-29558"))()
+end)
+
+othersTab.newButton("🔫 Arsenal V2", "Shooter Game (New Version)", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Arsenal-V2-Script-27539"))()
+end)
+
+othersTab.newButton("🎢 Theme Park Tycoon", "Theme Park Building Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Theme-Park-Tycoon-Script-20935"))()
+end)
+
+othersTab.newButton("⛏️ Miner's Haven", "Mining Simulator Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Miners-Haven-Script-25020"))()
+end)
+
+othersTab.newButton("🔪 Murder Mystery X", "MM2 Variant", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Murder-Mystery-X-Script-29384"))()
+end)
+
+othersTab.newButton("🦈 SharkBite", "Shark Attack Survival Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/SharkBite-Script-27438"))()
+end)
+
+othersTab.newButton("🏃 Speed Run 4", "Speedrun Challenge", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Speedrun-4-Script-25194"))()
+end)
+
+othersTab.newButton("💧 Flood Escape 2", "Flood Survival Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Flood-Escape-2-Script-21172"))()
+end)
+
+othersTab.newButton("⚔️ Rogue Lineage", "Anime Fighting RPG", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Rogue-Lineage-Script-23947"))()
+end)
+
+othersTab.newButton("🏰 Tower Defense Simulator", "Tower Defense Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Tower-Defense-Simulator-Script-25071"))()
+end)
+
+othersTab.newButton("🏝️ Island Royale", "Battle Royale Game", function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Island-Royale-Script-27765"))()
+end)
+
+othersTab.newButton("🔫 Counter Blox - Remastered Most P Script", "Counter Blox remastered script for an advantage.", function()
+    loadstring(game:HttpGet("https://scriptblox.com/script/Counter-Blox:-Remastered-Most-P-Script-5897"))()
+end)
+
+othersTab.newButton("🚀 Twisted Space Hub - Autofarm", "Twisted Space Hub with autofarm capabilities.", function()
+    loadstring(game:HttpGet("https://scriptblox.com/script/Twisted-BETA-Twisted-Space-Hub-Autofarm-6123"))()
+end)
+
+othersTab.newButton("🎵 Friday Night Bloxxin' - Bloxxin Updated Autoplayer", "Autoplayer script for Friday Night Bloxxin'.", function()
+    loadstring(game:HttpGet("https://scriptblox.com/script/GAME-OVER-Friday-Night-Bloxxin'-Bloxxin-New-Updated-Autoplayer-6421"))()
+end)
+   
+end);
