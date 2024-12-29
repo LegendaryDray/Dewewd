@@ -1,831 +1,119 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/joeengo/exploiting/main/EngoUILIB_V2.lua", true))()
-
-local main = library:CreateMain("Credits", "Main", "Universal", "Troll", "Others", "Others2", "Others3", "Cmds", "UpdateLogs", Enum.KeyCode.LeftAlt)
-
-local tab = main:CreateTab("Credits")
-
-tab.newLabel("🌟 Hub Creator: uniqve")
-tab.newLabel("🧪 Script Tester: qweiringss")
-tab.newLabel("🎨 UI Design: DrRay Library")
-tab.newLabel("🙏 Special Thanks: AZYsGithub")
-tab.newLabel("🔄 Version: 5.0 Updated")
-tab.newLabel("🌐 Additional Credits: External Z Hub Community")
-
-local mainTab = main:CreateTab("Main")
-
-mainTab.newLabel("📝 Credits: External Team")
-mainTab.newLabel("🔄 Updated")
-mainTab.newLabel("🔍 Find more stuff in the last tab")
-mainTab.newLabel("🔧 Useful stuff")
-
--- Tools in Main Tab
-mainTab.newButton("🔄 Rejoin", "Yes sir, it's self-explanatory", function()
-    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
-end)
-
-mainTab.newButton("🔄 Serverhop", "Joins you in a different server", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/VduBT2nt"))()
-end)
-
-mainTab.newButton("🔍 Script searcher", "Useful if you don't have an executor with global scripts", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
-end)
-
-mainTab.newButton("⌨️ Keyboard", "Keyboard for mobile", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
-end)
-
-mainTab.newButton("🛠️ Dex explorer", "Dex for mobile to steal game scripts and delete stuff", function()
-    getgenv().Key = "Bash"
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex", true))()
-end)
-
-mainTab.newButton("🦘 Inf Jump", "Gives you infinite jump so you can jump forever", function()
-    local InfiniteJumpEnabled = true
-    game:GetService("User InputService").JumpRequest:connect(function()
-        if InfiniteJumpEnabled then
-            game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-        end
-    end)
-end)
-
-mainTab.newButton("👀 Chat spy [FE]", "Spy on private chat", function()
-    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Chat-Spy-Script-2104"))()
-end)
-
-mainTab.newButton("🚪 Noclip", "Walk through walls; press 'E' to toggle", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/yxvrgmMH"))()
-end)
-
-mainTab.newButton("✈️ Fly GUI", "A fly GUI to make you fly", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/zXUSuxbs"))()
-end)
-
-local trollTab = main:CreateTab("Troll")
-
-trollTab.newButton("⚡ FPS Booster", "Improves game performance", function()
-    setfpscap(1000)
-end)
-
-trollTab.newButton("⏲️ Anti-AFK", "Prevents being kicked", function()
-    local vu = game:GetService("VirtualUser ")
-    game:GetService("Players").LocalPlayer.Idled:connect(function()
-        vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-        wait(1)
-        vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-    end)
-end)
-
-local gamesTab = main:CreateTab("Games")
-
-gamesTab.newButton("🔫 Arsenal", "Shooter Game Script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/StupidProAArsenal/UniqueHub/main/arsenal"))()
-end)
-
-gamesTab.newButton("🏡 Bloxburg", "House Building Game", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SurgeDid/ Blockburg/main/loader.lua"))()
-end)
-
-gamesTab.newButton("🏃 Tower of Hell", "Parkour Challenge", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Tower-of-Hell-STARRY-OP-25216"))()
-end)
-
-gamesTab.newButton("🚔 Jailbreak", "Heist Adventure", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Jailbreak-BEST-OP-SCRIPT-18726"))()
-end)
-
-gamesTab.newButton("👥 Shindo Life", "Anime RPG Script", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/UPDATE-Shindo-Life-Premier-X-Free-Version-3237"))()
-end)
-
-gamesTab.newButton("🎶 Funky Friday", "Rhythm Game Script", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Autoplayer_278"))()
-end)
-
-gamesTab.newButton("⚔️ Combat Warriors", "Combat Battle", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/EVENT-UPDCombat-Warriors-25240"))()
-end)
-
-gamesTab.newButton("⚾ Blade Ball", "PVP Battle Script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/No6No6No7yt/Lumin-Hub/main/BladeV4.lua"))()
-end)
-
-gamesTab.newButton("⚔️ Anime Fighting Simulator", "Anime Battle Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Anime-Fighting-Simulator-Script-23562"))()
-end)
-
-gamesTab.newButton("🔪 Murder Mystery 2", "Murder Mystery Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Murder-Mystery-2-Script-22143"))()
-end)
-
-gamesTab.newButton("🐝 Bee Swarm Simulator", "Bee Farming Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Bee-Swarm-Simulator-Script-22651"))()
-end)
-
-gamesTab.newButton("☠️ Blox Fruits", "Pirate Adventure Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Blox-Fruits-Script-20664"))()
-end)
-
-gamesTab.newButton("🐾 Pet Simulator X", "Pet Collecting Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Pet-Simulator-X-Script-22843"))()
-end)
-
-gamesTab.newButton("🚢 Build a Boat for Treasure", "Boat Building Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Build-a-Boat-for-Treasure-Script-19183"))()
-end)
-
-gamesTab.newButton("🌲 Lumber Tycoon 2", "Woodcutting Simulator", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Lumber-Tycoon-2-Script-21943"))()
-end)
-
-gamesTab.newButton("🏙️ Brookhaven", "Life Simulation Game", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/4w3s0me/0/"))()
-end)
-
-local othersTab = main:CreateTab("Others")
-
-othersTab.newButton("🐶 Adopt Me!", "Pet Simulation Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Adopt-Me-Script-30159"))()
-end)
-
-othersTab.newButton("🧩 Escape Room", "Escape Room Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Escape-Room-Script-25517"))()
-end)
-
-othersTab.newButton("💣 Super Bomb Survival", "Explosive Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Super-Bomb-Survival-Script-30242"))()
-end)
-
-othersTab.newButton("🌪️ Natural Disaster Survival", "Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Natural-Disaster-Survival-Script-29558"))()
-end)
-
-othersTab.newButton("🔫 Arsenal V2", "Shooter Game (New Version)", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Arsenal-V2-Script-27539"))()
-end)
-
-othersTab.newButton("🎢 Theme Park Tycoon", "Theme Park Building Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Theme-Park-Tycoon-Script-20935"))()
-end)
-
-othersTab.newButton("⛏️ Miner's Haven", "Mining Simulator Game", ```lua
-function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Miners-Haven-Script-25020"))()
-end)
-
-othersTab.newButton("🔪 Murder Mystery X", "MM2 Variant", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Murder-Mystery-X-Script-29384"))()
-end)
-
-othersTab.newButton("🦈 SharkBite", "Shark Attack Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/SharkBite-Script-27438"))()
-end)
-
-othersTab.newButton("🏃 Speed Run 4", "Speedrun Challenge", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Speedrun-4-Script-25194"))()
-end)
-
-othersTab.newButton("💧 Flood Escape 2", "Flood Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Flood-Escape-2-Script-21172"))()
-end)
-
-othersTab.newButton("⚔️ Rogue Lineage", "Anime Fighting RPG", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Rogue-Lineage-Script-23947"))()
-end)
-
-othersTab.newButton("🏰 Tower Defense Simulator", "Tower Defense Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Tower-Defense-Simulator-Script-25071"))()
-end)
-
-othersTab.newButton("🏝️ Island Royale", "Battle Royale Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Island-Royale-Script-27765"))()
-end)
-
-othersTab.newButton("🔫 Counter Blox - Remastered Most P Script", "Counter Blox remastered script for an advantage.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Counter-Blox:-Remastered-Most-P-Script-5897"))()
-end)
-
-othersTab.newButton("🚀 Twisted Space Hub - Autofarm", "Twisted Space Hub with autofarm capabilities.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Twisted-BETA-Twisted-Space-Hub-Autofarm-6123"))()
-end)
-
-othersTab.newButton("🎵 Friday Night Bloxxin' - Bloxxin Updated Autoplayer", "Autoplayer script for Friday Night Bloxxin'.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/GAME-OVER-Friday-Night-Bloxxin'-Bloxxin-New-Updated-Autoplayer-6421"))()
-end)
-
-local others2Tab = main:CreateTab("Others2")
-
-others2Tab.newButton("🔪 Universal Fake MM2 GUI", "Fake MM2 GUI with universal compatibility.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Universal-FAKE-MM2-GUI-5847"))()
-end)
-
-others2Tab.newButton("🔨 Destroy the Noob - Buy Everything", "Script to buy everything in Destroy the Noob game.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Destroy-the-Noob-Buy-Everything-5897"))()
-end)
-
-others2Tab.newButton("🏈 NFL Tycoon - Auto Collect Money", "Auto collect money and footballs in NFL Tycoon.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/NFL-Tycoon-AUTO-COLLECT-MONEY-AUTO-BUY-COLLECT-ALL-FOOTBALLS-6351"))()
-end)
-
-others2Tab.newButton("🏢 Apartment Tycoon - Script", "Apartment Tycoon script for easy gameplay.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Apartment-Tycoon-UPD-1!-Apartment-Tycoon-Script-6274"))()
-end)
-
-others2Tab.newButton("👊 Punch a Brick Wall - Inf Money", "Infinite money for Punch a Brick Wall simulator.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Punch-a-brick-wall-simulator-Punch-Wll-Inf-Money-Op-6307"))()
-end)
-
-others2Tab.newButton("🚗 Car Crash Simulator - All Servers Script", "Car Crash Simulator script for all servers.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Car-Crash-Simulator-UPDATE-16.6-all-servers-script-5902"))()
-end)
-
-others2Tab.newButton("⚔️ Combat Warriors - Very OP Script", "Very OP Combat Warriors script for easy wins.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Combat-Warriors-Script-VERY-OP-6143"))()
-end)
-
-others2Tab.newButton("🛠️ Universal Adminus Cracked", "Cracked Adminus script for server control.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Adminus-Cracked-6259"))()
-end)
-
-others2Tab.newButton("🔪 Knife Strife - OP Script", "OP script for Knife Strife, giving you an advantage.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/UPDATE-Knife-Strife!-op-6204"))()
-end)
-
-others2Tab.newButton("📚 Facts Hub - Keyless Script", "Keyless script for Facts Hub with multiple features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Facts-Hub-Keyless-6257"))()
-end)
-
-others2Tab.newButton("🔧 Q Tool - Universal Script", "Universal script with Q Tool functionality.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Q-Tool-6607"))()
-end)
-
-others2Tab.newButton("🏬 Walmart Land - Trolling Script", "A bit of trolling in Walmart Land with this script.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Walmart-Land-A-little-bit-of-trolling-6080"))()
-end)
-
-others2Tab.newButton("🏠 Dollhouse Roleplay - Claim Coin x10", "Claim 10x coins in Dollhouse Roleplay.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Dollhouse-Roleplay-Dollhouse-RolePlay-Claim-Coin-x10-6497"))()
-end)
-
-others2Tab.newButton("🏛️ Redwood Prison - Nameless Hub", "Nameless Hub for Redwood Prison with various features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Redwood-Prison-Nameless-Hub-6573"))()
-end)
-
-others2Tab.newButton("💥 Chaos OP Script", "OP script for Chaos game with all features unlocked.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/CHAOS-OP-SCRIPT-6076"))()
-end)
-
-others2Tab.newButton("⚽ Ball and Axe - Auto Win OP", "Auto win script for Ball and Axe game.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/ball-and-axe-Auto-Win-OP-6209"))()
-end)
-
-others2Tab.newButton("😱 Apeirophobia - OP Script", "OP script for Apeirophobia with various hacks.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Apeirophobia-Script-OP-6275"))()
-end)
-
-others2Tab.newButton("🏀 Dunking Simulator - GUI", "GUI for Dunking Simulator to make gameplay easier.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Dunking-Simulator-Dunking-Simulator-GUI-6508"))()
-end)
-
-local others3Tab = main:CreateTab("Others3")
-
-others3Tab.newButton("🔒 Da Hood - Repost Lock", "Lock script for Da Hood, preventing any access.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Da-Hood-repost-of-my-da-hood-lock-6541"))()
-end)
-
-others3Tab.newButton("💬 Chat Bypass OP - Universal Script", "Bypass chat restrictions in Roblox with this script.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Chat-Bypasser-OP-6305"))()
-end)
-
-others3Tab.newButton("💬 Chat Haxx - Universal Script", "Bypass chat haxx with this universal script.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Chat-Haxx-6128"))()
-end)
-
-others3Tab.newButton("🔄 Shindo Life OP - Infinite Spin", "Shindo Life OP script with infinite spin.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/UPDATE-Shindo-Life-Op-infinite-spin-6306"))()
-end)
-
-others3Tab.newButton("🛠️ Universal Script 2016", "A universal script for various functions.", function()
-    loadstring(game:HttpGet("https://scriptblox .com/script/Universal-Script-2016-6335"))()
-end)
-
-others3Tab.newButton("🎯 Aim Assistant - Universal Script", "Universal aim assistant for better accuracy.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Aim-assistant-6012"))()
-end)
-
-others3Tab.newButton("👍 Very Gud - Universal Script", "A very good universal script for multiple purposes.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Very-gud-6567"))()
-end)
-
-others3Tab.newButton("👁️ Unnamed ESP - Universal Script", "A universal script for Unnamed ESP functions.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-UnnamedESP-6152"))()
-end)
-
-others3Tab.newButton("🐾 Pet Legends 2 - Free GUI", "Free GUI for Pet Legends 2 with a key in description.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/1-Day!!-Pet-Legends-2-free-gui-the-key-in-desc-6390"))()
-end)
-
-others3Tab.newButton("🕵️ Da Hood Jojo Script", "JoJo's Bizarre Adventure script for Da Hood.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Da-Hood-jojo-script-dahood-6153"))()
-end)
-
-others3Tab.newButton("🍇 Blox Fruits - Auto Quest", "Blox Fruits auto quest script for easier leveling.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/UPDATE-16-Blox-Fruits-Blox-Fruit-Auto-Quest-6402"))()
-end)
-
-others3Tab.newButton("🕒 Ant AFK - Universal Script", "Universal script with AFK functionality.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Ant-Afk-6259"))()
-end)
-
-others3Tab.newButton("🔧 Synapse X Rework", "Reworked version of Synapse X for enhanced script execution.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Synapse-X-Rework-6071"))()
-end)
-
-others3Tab.newButton("🧟 Zombie Lab - Zmod Open Source", "Open-source Zmod script for Zombie Lab with all features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Zombie-lab-NOW-OPEN-SOURCE-Zmod-6091"))()
-end)
-
-others3Tab.newButton("💬 Better Chat Bypasser", "Chat bypass script for Roblox to remove restrictions.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Better-Chat-Bypasser-6160"))()
-end)
-
-others3Tab.newButton("🌌 Galaxy Hub - 12 Supported Games", "Universal script with Galaxy Hub support for 12 games.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Galaxy-Hub-12-Supported-Games-6212"))()
-end)
-
-others3Tab.newButton("🎯 Silent Aim - Aimlock Breaker", "Break silent aim or aimlocks in various games.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-break-ppls-silent-aim-aka-aimlocks-5774"))()
-end)
-
-others3Tab.newButton("🚔 Prison Life - Sina Hub", "Sina Hub for Prison Life with cars fixed and extra features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Prison-Life-(Cars-fixed!)-Sina-Hub-Just-Enjoy-5838"))()
-end)
-
-others3Tab.newButton("🔪 Murder Mystery 2 - NexusX Hub", "NexusX Hub script for Murder Mystery 2.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Murder-Mystery-2-NexusX-Hub-mm-6570"))()
-end)
-
-others3Tab.newButton("🎵 Funky Friday - Auto Farm Boss Lord X", "Auto farm script for Funky Friday with Boss Lord X features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/SHOP-PREVIEWS-or-Funky-Friday-NEW-UPDATE-SCRIPT-AUTOFARM-BOSS-LORD-X-6293"))()
-end)
-
-others3Tab.newButton("💰 PLS DONATE - Auto Farm Robux", "Auto farm Robux in P LS DONATE.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/PLS-DONATE-NEW-Auto-farm-robux-pls-donate-6280"))()
-end)
-
-local cmdsTab = main:CreateTab("Cmds")
-
-cmdsTab.newButton("⚙️ Iv Admin", "Fe admin script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyBurns/Hex/main/Iv%20Admin%20v3.lua"))()
-end)
-
-cmdsTab.newButton("🔄 Infinite Yield", "Fe admin script", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-
-cmdsTab.newButton("🔧 Reviz Admin", "Fe admin script", function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/RqaZUrBZ'))()
-end)
-
-cmdsTab.newButton("🔧 Fates Admin", "Fe admin script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))()
-end)
-
-cmdsTab.newButton("🔧 Nameless Admin", "Fe admin script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
-end)
-
-local updateLogsTab = main:CreateTab("UpdateLogs")
-updateLogsTab:Label("Update Logs.")
-
-updateLogsTab.newLabel("ℹ️ (using buttons to display updates, clicking does nothing)")
-
-updateLogsTab.newButton("🔄 Update 1: Added even more stuff and also fixed some stuff", "Yes sir, it's self-explanatory", function()
-    print("Non")
-end)
-
-updateLogsTab.newButton("🔄 Update 2: Adding more games (to request a game contact us on our Discord)", "Yes sir, it's self-explanatory", function()
-    setclipboard("https://discord.gg/aXmrXQH8AF")
-end)
-
--- Toggle Window with F key
-game:GetService("User InputService").InputBegan:Connect(function(Input)
-    if Input.KeyCode == Enum.KeyCode.F then
-        main:Toggle()
+local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
+
+local UI = GUI:CreateWindow("the um","lop")
+
+local Home = UI:addPage("Home","Credits",1,true,6)
+
+Home:addLabel("This is a Label","Lol this funny")
+
+Home:addButton("This is a button",function()
+    game.StarterGui:SetCore("SendNotification",{
+        Title = "Clicked";
+        Text = "Lo";
+    })
+end)
+
+Home:addToggle("This is a Toggle",function(value)
+    print(value)
+    if value == false then 
+        game.StarterGui:SetCore("SendNotification",{
+            Title = "Toggle";
+            Text = "false";
+        })
+    else 
+        game.StarterGui:SetCore("SendNotification",{
+            Title = "Toggle";
+            Text = "true";
+        })
     end
-end)local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/joeengo/exploiting/main/EngoUILIB_V2.lua", true))()
-
-local main = library:CreateMain("Credits", "Main", "Universal", "Troll", "Others", "Others2", "Others3", "Cmds", "UpdateLogs", Enum.KeyCode.LeftAlt)
-
-local tab = main:CreateTab("Credits")
-
-tab.newLabel("🌟 Hub Creator: uniqve")
-tab.newLabel("🧪 Script Tester: qweiringss")
-tab.newLabel("🎨 UI Design: DrRay Library")
-tab.newLabel("🙏 Special Thanks: AZYsGithub")
-tab.newLabel("🔄 Version: 5.0 Updated")
-tab.newLabel("🌐 Additional Credits: External Z Hub Community")
-
-local mainTab = main:CreateTab("Main")
-
-mainTab.newLabel("📝 Credits: External Team")
-mainTab.newLabel("🔄 Updated")
-mainTab.newLabel("🔍 Find more stuff in the last tab")
-mainTab.newLabel("🔧 Useful stuff")
-
--- Tools in Main Tab
-mainTab.newButton("🔄 Rejoin", "Yes sir, it's self-explanatory", function()
-    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
-end)
-
-mainTab.newButton("🔄 Serverhop", "Joins you in a different server", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/VduBT2nt"))()
-end)
-
-mainTab.newButton("🔍 Script searcher", "Useful if you don't have an executor with global scripts", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/ScriptSearcher"))()
-end)
-
-mainTab.newButton("⌨️ Keyboard", "Keyboard for mobile", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
-end)
-
-mainTab.newButton("🛠️ Dex explorer", "Dex for mobile to steal game scripts and delete stuff", function()
-    getgenv().Key = "Bash"
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AIY%20Dex", true))()
-end)
-
-mainTab.newButton("🦘 Inf Jump", "Gives you infinite jump so you can jump forever", function()
-    local InfiniteJumpEnabled = true
-    game:GetService("User InputService").JumpRequest:connect(function()
-        if InfiniteJumpEnabled then
-            game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-        end
-    end)
-end)
-
-mainTab.newButton("👀 Chat spy [FE]", "Spy on private chat", function()
-    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Chat-Spy-Script-2104"))()
-end)
-
-mainTab.newButton("🚪 Noclip", "Walk through walls; press 'E' to toggle", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/yxvrgmMH"))()
-end)
-
-mainTab.newButton("✈️ Fly GUI", "A fly GUI to make you fly", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/zXUSuxbs"))()
-end)
-
-local trollTab = main:CreateTab("Troll")
-
-trollTab.newButton("⚡ FPS Booster", "Improves game performance", function()
-    setfpscap(1000)
-end)
-
-trollTab.newButton("⏲️ Anti-AFK", "Prevents being kicked", function()
-    local vu = game:GetService("VirtualUser ")
-    game:GetService("Players").LocalPlayer.Idled:connect(function()
-        vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-        wait(1)
-        vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-    end)
-end)
-
-local gamesTab = main:CreateTab("Games")
-
-gamesTab.newButton("🔫 Arsenal", "Shooter Game Script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/StupidProAArsenal/UniqueHub/main/arsenal"))()
-end)
-
-gamesTab.newButton("🏡 Bloxburg", "House Building Game", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SurgeDid/ Blockburg/main/loader.lua"))()
-end)
-
-gamesTab.newButton("🏃 Tower of Hell", "Parkour Challenge", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Tower-of-Hell-STARRY-OP-25216"))()
-end)
-
-gamesTab.newButton("🚔 Jailbreak", "Heist Adventure", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Jailbreak-BEST-OP-SCRIPT-18726"))()
-end)
-
-gamesTab.newButton("👥 Shindo Life", "Anime RPG Script", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/UPDATE-Shindo-Life-Premier-X-Free-Version-3237"))()
-end)
-
-gamesTab.newButton("🎶 Funky Friday", "Rhythm Game Script", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Autoplayer_278"))()
-end)
-
-gamesTab.newButton("⚔️ Combat Warriors", "Combat Battle", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/EVENT-UPDCombat-Warriors-25240"))()
-end)
-
-gamesTab.newButton("⚾ Blade Ball", "PVP Battle Script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/No6No6No7yt/Lumin-Hub/main/BladeV4.lua"))()
-end)
-
-gamesTab.newButton("⚔️ Anime Fighting Simulator", "Anime Battle Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Anime-Fighting-Simulator-Script-23562"))()
-end)
-
-gamesTab.newButton("🔪 Murder Mystery 2", "Murder Mystery Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Murder-Mystery-2-Script-22143"))()
-end)
-
-gamesTab.newButton("🐝 Bee Swarm Simulator", "Bee Farming Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Bee-Swarm-Simulator-Script-22651"))()
-end)
-
-gamesTab.newButton("☠️ Blox Fruits", "Pirate Adventure Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Blox-Fruits-Script-20664"))()
-end)
-
-gamesTab.newButton("🐾 Pet Simulator X", "Pet Collecting Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Pet-Simulator-X-Script-22843"))()
-end)
-
-gamesTab.newButton("🚢 Build a Boat for Treasure", "Boat Building Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Build-a-Boat-for-Treasure-Script-19183"))()
-end)
-
-gamesTab.newButton("🌲 Lumber Tycoon 2", "Woodcutting Simulator", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Lumber-Tycoon-2-Script-21943"))()
-end)
-
-gamesTab.newButton("🏙️ Brookhaven", "Life Simulation Game", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/4w3s0me/0/"))()
-end)
-
-local othersTab = main:CreateTab("Others")
-
-othersTab.newButton("🐶 Adopt Me!", "Pet Simulation Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Adopt-Me-Script-30159"))()
-end)
-
-othersTab.newButton("🧩 Escape Room", "Escape Room Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Escape-Room-Script-25517"))()
-end)
-
-othersTab.newButton("💣 Super Bomb Survival", "Explosive Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Super-Bomb-Survival-Script-30242"))()
-end)
-
-othersTab.newButton("🌪️ Natural Disaster Survival", "Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Natural-Disaster-Survival-Script-29558"))()
-end)
-
-othersTab.newButton("🔫 Arsenal V2", "Shooter Game (New Version)", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Arsenal-V2-Script-27539"))()
-end)
-
-othersTab.newButton("🎢 Theme Park Tycoon", "Theme Park Building Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Theme-Park-Tycoon-Script-20935"))()
-end)
-
-othersTab.newButton("⛏️ Miner's Haven", "Mining Simulator Game", ```lua
-function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Miners-Haven-Script-25020"))()
-end)
-
-othersTab.newButton("🔪 Murder Mystery X", "MM2 Variant", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Murder-Mystery-X-Script-29384"))()
-end)
-
-othersTab.newButton("🦈 SharkBite", "Shark Attack Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/SharkBite-Script-27438"))()
-end)
-
-othersTab.newButton("🏃 Speed Run 4", "Speedrun Challenge", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Speedrun-4-Script-25194"))()
-end)
-
-othersTab.newButton("💧 Flood Escape 2", "Flood Survival Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Flood-Escape-2-Script-21172"))()
-end)
-
-othersTab.newButton("⚔️ Rogue Lineage", "Anime Fighting RPG", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Rogue-Lineage-Script-23947"))()
-end)
-
-othersTab.newButton("🏰 Tower Defense Simulator", "Tower Defense Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Tower-Defense-Simulator-Script-25071"))()
-end)
-
-othersTab.newButton("🏝️ Island Royale", "Battle Royale Game", function()
-    loadstring(game:HttpGet("https://rawscripts.net/raw/Island-Royale-Script-27765"))()
 end)
 
-othersTab.newButton("🔫 Counter Blox - Remastered Most P Script", "Counter Blox remastered script for an advantage.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Counter-Blox:-Remastered-Most-P-Script-5897"))()
+Home:addSlider("This is a Slider",16,100,function(value)
+    print(value)
 end)
 
-othersTab.newButton("🚀 Twisted Space Hub - Autofarm", "Twisted Space Hub with autofarm capabilities.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Twisted-BETA-Twisted-Space-Hub-Autofarm-6123"))()
+Home:addTextBox("This is a TextBox","Um",function(value)
+    game.StarterGui:SetCore("SendNotification",{
+        Title = "Wrote";
+        Text = value;
+    })
 end)
 
-othersTab.newButton("🎵 Friday Night Bloxxin' - Bloxxin Updated Autoplayer", "Autoplayer script for Friday Night Bloxxin'.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/GAME-OVER-Friday-Night-Bloxxin'-Bloxxin-New-Updated-Autoplayer-6421"))()
+Home:addDropdown("This is a Dropdown",{"Um","Yep","Lop","GG"},1,function(value)
+    game.StarterGui:SetCore("SendNotification",{
+        Title = "Selected :";
+        Text = value;
+    }) 
 end)
 
-local others2Tab = main:CreateTab("Others2")
+-- Just an example of how you would actually use it i guess
 
-others2Tab.newButton("🔪 Universal Fake MM2 GUI", "Fake MM2 GUI with universal compatibility.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Universal-FAKE-MM2-GUI-5847"))()
-end)
-
-others2Tab.newButton("🔨 Destroy the Noob - Buy Everything", "Script to buy everything in Destroy the Noob game.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Destroy-the-Noob-Buy-Everything-5897"))()
-end)
-
-others2Tab.newButton("🏈 NFL Tycoon - Auto Collect Money", "Auto collect money and footballs in NFL Tycoon.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/NFL-Tycoon-AUTO-COLLECT-MONEY-AUTO-BUY-COLLECT-ALL-FOOTBALLS-6351"))()
-end)
-
-others2Tab.newButton("🏢 Apartment Tycoon - Script", "Apartment Tycoon script for easy gameplay.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Apartment-Tycoon-UPD-1!-Apartment-Tycoon-Script-6274"))()
-end)
-
-others2Tab.newButton("👊 Punch a Brick Wall - Inf Money", "Infinite money for Punch a Brick Wall simulator.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Punch-a-brick-wall-simulator-Punch-Wll-Inf-Money-Op-6307"))()
-end)
-
-others2Tab.newButton("🚗 Car Crash Simulator - All Servers Script", "Car Crash Simulator script for all servers.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Car-Crash-Simulator-UPDATE-16.6-all-servers-script-5902"))()
-end)
-
-others2Tab.newButton("⚔️ Combat Warriors - Very OP Script", "Very OP Combat Warriors script for easy wins.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Combat-Warriors-Script-VERY-OP-6143"))()
-end)
-
-others2Tab.newButton("🛠️ Universal Adminus Cracked", "Cracked Adminus script for server control.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Adminus-Cracked-6259"))()
-end)
-
-others2Tab.newButton("🔪 Knife Strife - OP Script", "OP script for Knife Strife, giving you an advantage.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/UPDATE-Knife-Strife!-op-6204"))()
-end)
-
-others2Tab.newButton("📚 Facts Hub - Keyless Script", "Keyless script for Facts Hub with multiple features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Facts-Hub-Keyless-6257"))()
-end)
-
-others2Tab.newButton("🔧 Q Tool - Universal Script", "Universal script with Q Tool functionality.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Q-Tool-6607"))()
-end)
-
-others2Tab.newButton("🏬 Walmart Land - Trolling Script", "A bit of trolling in Walmart Land with this script.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Walmart-Land-A-little-bit-of-trolling-6080"))()
-end)
-
-others2Tab.newButton("🏠 Dollhouse Roleplay - Claim Coin x10", "Claim 10x coins in Dollhouse Roleplay.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Dollhouse-Roleplay-Dollhouse-RolePlay-Claim-Coin-x10-6497"))()
-end)
-
-others2Tab.newButton("🏛️ Redwood Prison - Nameless Hub", "Nameless Hub for Redwood Prison with various features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Redwood-Prison-Nameless-Hub-6573"))()
-end)
-
-others2Tab.newButton("💥 Chaos OP Script", "OP script for Chaos game with all features unlocked.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/CHAOS-OP-SCRIPT-6076"))()
-end)
-
-others2Tab.newButton("⚽ Ball and Axe - Auto Win OP", "Auto win script for Ball and Axe game.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/ball-and-axe-Auto-Win-OP-6209"))()
-end)
-
-others2Tab.newButton("😱 Apeirophobia - OP Script", "OP script for Apeirophobia with various hacks.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Apeirophobia-Script-OP-6275"))()
-end)
-
-others2Tab.newButton("🏀 Dunking Simulator - GUI", "GUI for Dunking Simulator to make gameplay easier.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Dunking-Simulator-Dunking-Simulator-GUI-6508"))()
-end)
-
-local others3Tab = main:CreateTab("Others3")
-
-others3Tab.newButton("🔒 Da Hood - Repost Lock", "Lock script for Da Hood, preventing any access.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Da-Hood-repost-of-my-da-hood-lock-6541"))()
-end)
-
-others3Tab.newButton("💬 Chat Bypass OP - Universal Script", "Bypass chat restrictions in Roblox with this script.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Chat-Bypasser-OP-6305"))()
-end)
-
-others3Tab.newButton("💬 Chat Haxx - Universal Script", "Bypass chat haxx with this universal script.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Chat-Haxx-6128"))()
-end)
-
-others3Tab.newButton("🔄 Shindo Life OP - Infinite Spin", "Shindo Life OP script with infinite spin.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/UPDATE-Shindo-Life-Op-infinite-spin-6306"))()
-end)
+local LP = UI:addPage("Local",2,false,6)
 
-others3Tab.newButton("🛠️ Universal Script 2016", "A universal script for various functions.", function()
-    loadstring(game:HttpGet("https://scriptblox .com/script/Universal-Script-2016-6335"))()
-end)
-
-others3Tab.newButton("🎯 Aim Assistant - Universal Script", "Universal aim assistant for better accuracy.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Aim-assistant-6012"))()
-end)
-
-others3Tab.newButton("👍 Very Gud - Universal Script", "A very good universal script for multiple purposes.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Very-gud-6567"))()
-end)
-
-others3Tab.newButton("👁️ Unnamed ESP - Universal Script", "A universal script for Unnamed ESP functions.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-UnnamedESP-6152"))()
-end)
-
-others3Tab.newButton("🐾 Pet Legends 2 - Free GUI", "Free GUI for Pet Legends 2 with a key in description.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/1-Day!!-Pet-Legends-2-free-gui-the-key-in-desc-6390"))()
-end)
-
-others3Tab.newButton("🕵️ Da Hood Jojo Script", "JoJo's Bizarre Adventure script for Da Hood.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Da-Hood-jojo-script-dahood-6153"))()
-end)
-
-others3Tab.newButton("🍇 Blox Fruits - Auto Quest", "Blox Fruits auto quest script for easier leveling.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/UPDATE-16-Blox-Fruits-Blox-Fruit-Auto-Quest-6402"))()
-end)
-
-others3Tab.newButton("🕒 Ant AFK - Universal Script", "Universal script with AFK functionality.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Ant-Afk-6259"))()
-end)
-
-others3Tab.newButton("🔧 Synapse X Rework", "Reworked version of Synapse X for enhanced script execution.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Synapse-X-Rework-6071"))()
-end)
-
-others3Tab.newButton("🧟 Zombie Lab - Zmod Open Source", "Open-source Zmod script for Zombie Lab with all features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Zombie-lab-NOW-OPEN-SOURCE-Zmod-6091"))()
-end)
-
-others3Tab.newButton("💬 Better Chat Bypasser", "Chat bypass script for Roblox to remove restrictions.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Better-Chat-Bypasser-6160"))()
-end)
-
-others3Tab.newButton("🌌 Galaxy Hub - 12 Supported Games", "Universal script with Galaxy Hub support for 12 games.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-Galaxy-Hub-12-Supported-Games-6212"))()
-end)
-
-others3Tab.newButton("🎯 Silent Aim - Aimlock Breaker", "Break silent aim or aimlocks in various games.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Universal-Script-break-ppls-silent-aim-aka-aimlocks-5774"))()
-end)
-
-others3Tab.newButton("🚔 Prison Life - Sina Hub", "Sina Hub for Prison Life with cars fixed and extra features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Prison-Life-(Cars-fixed!)-Sina-Hub-Just-Enjoy-5838"))()
-end)
-
-others3Tab.newButton("🔪 Murder Mystery 2 - NexusX Hub", "NexusX Hub script for Murder Mystery 2.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/Murder-Mystery-2-NexusX-Hub-mm-6570"))()
-end)
-
-others3Tab.newButton("🎵 Funky Friday - Auto Farm Boss Lord X", "Auto farm script for Funky Friday with Boss Lord X features.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/SHOP-PREVIEWS-or-Funky-Friday-NEW-UPDATE-SCRIPT-AUTOFARM-BOSS-LORD-X-6293"))()
-end)
-
-others3Tab.newButton("💰 PLS DONATE - Auto Farm Robux", "Auto farm Robux in P LS DONATE.", function()
-    loadstring(game:HttpGet("https://scriptblox.com/script/PLS-DONATE-NEW-Auto-farm-robux-pls-donate-6280"))()
-end)
+-- Label
 
-local cmdsTab = main:CreateTab("Cmds")
+LP:addLabel("Local","Don't use in games with anti cheats")
 
-cmdsTab.newButton("⚙️ Iv Admin", "Fe admin script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BloodyBurns/Hex/main/Iv%20Admin%20v3.lua"))()
-end)
-
-cmdsTab.newButton("🔄 Infinite Yield", "Fe admin script", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-
-cmdsTab.newButton("🔧 Reviz Admin", "Fe admin script", function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/RqaZUrBZ'))()
-end)
-
-cmdsTab.newButton("🔧 Fates Admin", "Fe admin script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))()
-end)
-
-cmdsTab.newButton("🔧 Nameless Admin", "Fe admin script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))()
-end)
+--- Button
 
-local updateLogsTab = main:CreateTab("UpdateLogs")
-updateLogsTab:Label("Update Logs.")
-
-updateLogsTab.newLabel("ℹ️ (using buttons to display updates, clicking does nothing)")
-
-updateLogsTab.newButton("🔄 Update 1: Added even more stuff and also fixed some stuff", "Yes sir, it's self-explanatory", function()
-    print("Non")
+LP:addButton("DIE",function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
 end)
 
-updateLogsTab.newButton("🔄 Update 2: Adding more games (to request a game contact us on our Discord)", "Yes sir, it's self-explanatory", function()
-    setclipboard("https://discord.gg/aXmrXQH8AF")
-end)
+-- Toggle
 
--- Toggle Window with F key
-game:GetService("User InputService").InputBegan:Connect(function(Input)
-    if Input.KeyCode == Enum.KeyCode.F then
-        main:Toggle()
+LP:addToggle("Sprint",function(value)
+    if value == false then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
     end
+end)
+
+-- Slider
+
+LP:addSlider("WalkSpeed",16,150,function(value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+
+-- Textbox
+
+LP:addTextBox("Jump Power / 50 is default","Number here",function(value)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
+end)
+
+-- Dropdown 
+
+local PLIST = {}
+
+for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+    table.insert(PLIST,v.DisplayName)
+end
+
+LP:addDropdown("Teleport to Player",PLIST,4,function(value)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  game.Players[value].Character.HumanoidRootPart.CFrame * CFrame.new(0,2,1)
+end)
+
+
+-- Spam 
+
+LP:addLabel("Spam","This is just to show how it looks with more ui elements")
+
+LP:addDropdown("Teleport to Player",PLIST,4,function(value)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  game.Players[value].Character.HumanoidRootPart.CFrame * CFrame.new(0,2,1)
+end)
+
+
+LP:addDropdown("Teleport to Player",PLIST,4,function(value)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  game.Players[value].Character.HumanoidRootPart.CFrame * CFrame.new(0,2,1)
+end)
+
+
+LP:addDropdown("Teleport to Player",PLIST,4,function(value)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  game.Players[value].Character.HumanoidRootPart.CFrame * CFrame.new(0,2,1)
+end)
+
+
+LP:addDropdown("Teleport to Player",PLIST,4,function(value)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  game.Players[value].Character.HumanoidRootPart.CFrame * CFrame.new(0,2,1)
 end)
